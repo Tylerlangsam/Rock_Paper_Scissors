@@ -2,6 +2,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+#PlayerScore {
+  border-style: solid;
+  border-color: black;
 }
 
 #Results {
@@ -24,7 +32,6 @@
   flex: 1, 1, auto;
   align-content: space-around;
   margin-top: auto;
-  /* margin-bottom: 20%; */
   background-image: linear-gradient(
     92.88deg,
     #455eb5 9.16%,
@@ -72,17 +79,23 @@
   height: 100vh;
   background-size: 300% 300%;
   background-image: linear-gradient(
-        -45deg, 
-        rgba(59,173,227,1) 0%, 
-        rgba(87,111,230,1) 25%, 
-        rgba(152,68,183,1) 51%, 
-        rgb(114, 53, 255) 100%
-  );  
+    -45deg,
+    rgba(59, 173, 227, 1) 0%,
+    rgba(87, 111, 230, 1) 25%,
+    rgba(152, 68, 183, 1) 51%,
+    rgb(114, 53, 255) 100%
+  );
   animation: AnimateBG 20s ease infinite;
 }
 
-@keyframes AnimateBG { 
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
