@@ -8,7 +8,18 @@ const WIN = "WIN";
 const LOSE = "LOSE";
 const DRAW = "DRAW";
 
+const rockBtn = document.getElementById("Rock");
+const paperBtn = document.getElementById("Paper");
+const scissorsBtn = document.getElementById("Scissors");
+const resultsDiv = document.getElementById("Results");
+const scoreDiv = document.getElementById("Score");
+const playerScoreDiv = document.getElementById("PlayerScore");
+const computerScoreDiv = document.getElementById("ComputerScore");
+
 const DRAW_MSG = "It's a draw!";
+
+let userScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
   let randChoice = Math.floor(Math.random() * choices.length);
@@ -44,26 +55,45 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  let computerScore = 0;
-  let userScore = 0;
-  for (let i = 0; i < 5; i++) {
-    let gameStatus = playRound(
-      prompt("Choose Rock, Paper, Scissors"),
-      getComputerChoice()
-    );
-    console.log(gameStatus.msg);
-    if (gameStatus.gameResult == WIN) {
-      userScore++;
-    }
-    if (gameStatus.gameResult == LOSE) {
-      computerScore++;
-    }
+function processResults(roundResults) {
+  resultsDiv.textContent = roundResults.msg;
+  if (roundResults.gameResult == WIN) {
+    userScore++;
   }
-  console.log(`Your Score: ${userScore}`);
-  console.log(`Computer Score: ${computerScore}`);
-  console.log(userScore > computerScore ? "You win!" : "you Lose (LOSER!!!)");
+  if (roundResults.gameResult == LOSE) {
+    computerScore++;
+  }
+  playerScoreDiv.textContent = userScore;
+  computerScoreDiv.textContent = computerScore;
+
+  if (userScore == 5) {
+    scoreDiv.textContent = "User Wins!";
+  }
+  if (computerScore == 5) {
+    scoreDiv.textContent = "Computer Wins!";
+  }
+
+  if (computerScore == 5 || userScore == 5) {
+    setTimeout(function () {
+      window.location.reload(1);
+    }, 5000);
+  }
 }
+
+rockBtn.addEventListener("click", () => {
+  let roundResults = playRound(ROCK, getComputerChoice());
+  processResults(roundResults);
+});
+
+paperBtn.addEventListener("click", () => {
+  let roundResults = playRound(PAPER, getComputerChoice());
+  processResults(roundResults);
+});
+
+scissorsBtn.addEventListener("click", () => {
+  let roundResults = playRound(SCISSORS, getComputerChoice());
+  processResults(roundResults);
+});
 
 //============================================
 //========== Tests ===========================
