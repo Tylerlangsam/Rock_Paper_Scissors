@@ -8,6 +8,9 @@ const WIN = "WIN";
 const LOSE = "LOSE";
 const DRAW = "DRAW";
 
+const BDY = document.querySelector("body");
+const newDiv = document.createElement("div");
+
 const rockBtn = document.getElementById("Rock");
 const paperBtn = document.getElementById("Paper");
 const scissorsBtn = document.getElementById("Scissors");
@@ -77,6 +80,7 @@ function processResults(roundResults) {
     setTimeout(function () {
       window.location.reload(1);
     }, 5000);
+    BDY.appendChild(newDiv).className = "firework";
   }
 }
 
