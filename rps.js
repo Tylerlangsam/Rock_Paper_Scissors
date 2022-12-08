@@ -80,7 +80,10 @@ function processResults(roundResults) {
     setTimeout(function () {
       window.location.reload(1);
     }, 5000);
-    BDY.appendChild(newDiv).className = "firework";
+    
+    if (userScore == 5) {
+      BDY.appendChild(newDiv).className = "firework";
+    }
   }
 }
 
