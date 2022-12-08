@@ -8,7 +8,9 @@ const WIN = "WIN";
 const LOSE = "LOSE";
 const DRAW = "DRAW";
 
+
 const BDY = document.querySelector("body");
+const allDivs = BDY.querySelectorAll("div");
 const newDiv = document.createElement("div");
 
 const rockBtn = document.getElementById("Rock");
@@ -83,9 +85,12 @@ function processResults(roundResults) {
     
     if (userScore == 5) {
       BDY.appendChild(newDiv).className = "firework";
+ 
+
+      }
     }
   }
-}
+
 
 rockBtn.addEventListener("click", () => {
   let roundResults = playRound(ROCK, getComputerChoice());
